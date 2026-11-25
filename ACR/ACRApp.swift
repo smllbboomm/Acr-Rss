@@ -45,22 +45,12 @@ struct ContentView: View {
     }
 }
 
-// MARK: - Liquid Glass (iOS 26, fallback to material)
+// MARK: - Simple flat style (user decided: simple, no liquid glass)
 extension View {
-    @ViewBuilder
     func liquidGlass() -> some View {
-        if #available(iOS 26.0, *) {
-            self.glassEffect(.regular.tint(.white.opacity(0.15)), in: .rect(cornerRadius: 20))
-        } else {
-            self.background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
-        }
+        self.background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 20))
     }
-    @ViewBuilder
     func liquidGlassCircle() -> some View {
-        if #available(iOS 26.0, *) {
-            self.glassEffect(.regular.tint(.white.opacity(0.2)), in: .circle)
-        } else {
-            self.background(.ultraThinMaterial, in: Circle())
-        }
+        self.background(Color(.secondarySystemBackground), in: Circle())
     }
 }

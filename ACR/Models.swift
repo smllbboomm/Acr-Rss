@@ -5,7 +5,7 @@ import SwiftData
 final class Folder {
     var name: String
     var sortOrder: Int
-    @Relationship(deleteRule: .cascade) var feeds: [Feed] = []
+    @Relationship(deleteRule: .cascade, inverse: \Feed.folder) var feeds: [Feed] = []
     init(name: String, sortOrder: Int = 0) { self.name = name; self.sortOrder = sortOrder }
 }
 
@@ -19,7 +19,7 @@ final class Feed {
     var etag: String?
     var lastModified: String?
     var lastFetched: Date?
-    @Relationship(deleteRule: .cascade) var articles: [Article] = []
+    @Relationship(deleteRule: .cascade, inverse: \Article.feed) var articles: [Article] = []
     init(title: String, url: String, siteURL: String, iconName: String = "", folder: Folder? = nil) {
         self.title = title; self.url = url; self.siteURL = siteURL; self.iconName = iconName; self.folder = folder
     }

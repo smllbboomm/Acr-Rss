@@ -6,14 +6,6 @@
 	<string>Acr</string>
 	<key>CFBundleName</key>
 	<string>Acr</string>
-	<key>UILaunchStoryboardName</key>
-	<string></string>
-	<key>UIMainStoryboardFile</key>
-	<string></string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

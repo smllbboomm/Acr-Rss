@@ -3,6 +3,7 @@ import SwiftUI
 /// 动态背景：四团柔和色彩缓慢流动；减弱动态效果时静止。
 struct DynamicBackground: View {
     @AppStorage("dynamicBackground") private var enabled = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var animate = false
     var body: some View {
         ZStack {
@@ -15,8 +16,7 @@ struct DynamicBackground: View {
             }
         }
         .ignoresSafeArea()
-        .onAppear { withAnimation(.easeInOut(duration: 18).repeatForever(autoreverses: true)) { animate.toggle() } }
-        .accessibilityReduceMotion(.reduce)
+        .onAppear { if !reduceMotion { withAnimation(.easeInOut(duration: 18).repeatForever(autoreverses: true)) { animate.toggle() } } }
     }
 }
 

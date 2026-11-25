@@ -6,6 +6,8 @@
 	<string>Acr</string>
 	<key>CFBundleName</key>
 	<string>Acr</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.smllbboomm.acr</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

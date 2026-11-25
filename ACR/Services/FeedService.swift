@@ -38,7 +38,7 @@ final class FeedService: ObservableObject {
     /// 粘贴网页地址自动探测 feed：先试常见路径，再解析 HTML 找 <link rel="alternate" type="application/rss+xml">
     static func discoverFeedURL(from input: String) async -> URL? {
         let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard var base = URL(string: trimmed.hasPrefix("http") ? trimmed : "https://" + trimmed) else { return nil }
+        guard let base = URL(string: trimmed.hasPrefix("http") ? trimmed : "https://" + trimmed) else { return nil }
         if base.pathExtension == "xml" || trimmed.contains("feed") || trimmed.contains("rss") || trimmed.contains("atom") { return base }
         for path in ["/feed", "/feed.xml", "/rss", "/rss.xml", "/atom.xml"] {
             if let u = URL(string: path, relativeTo: base) { if await headOK(u) { return u } }
@@ -52,7 +52,7 @@ final class FeedService: ObservableObject {
                 return URL(string: String(html[r]), relativeTo: base)?.absoluteURL
             }
         }
-        _ = base; return nil
+        return nil
     }
 
     private static func headOK(_ url: URL) async -> Bool {

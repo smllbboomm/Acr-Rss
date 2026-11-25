@@ -1,0 +1,13 @@
+# Xcode
+*.xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+build/
+.DS_Store
+# Secrets - never commit keys
+**/Secrets*.swift
+*.mobileprovision
+*.p12

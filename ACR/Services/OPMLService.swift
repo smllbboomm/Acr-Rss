@@ -3,9 +3,9 @@ import Foundation
 /// OPML 导入导出（XMLParser / 手写 XML，无第三方库）
 enum OPMLService {
     static func export(feeds: [Feed]) -> String {
-        var xml = "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>\n<opml version=\\"2.0\\"><head><title>ACR</title></head><body>\n"
+        var xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<opml version=\"2.0\"><head><title>ACR</title></head><body>\n"
         for f in feeds {
-            xml += "<outline type=\\"rss\\" text=\\"\(escape(f.title))\\" title=\\"\(escape(f.title))\\" xmlUrl=\\"\(escape(f.url))\\" htmlUrl=\\"\(escape(f.siteURL))\\"/>\n"
+            xml += "<outline type=\"rss\" text=\"\(escape(f.title))\" title=\"\(escape(f.title))\" xmlUrl=\"\(escape(f.url))\" htmlUrl=\"\(escape(f.siteURL))\"/>\n"
         }
         return xml + "</body></opml>\n"
     }

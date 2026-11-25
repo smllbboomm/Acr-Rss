@@ -19,7 +19,10 @@ struct SettingsView: View {
     @State private var newFeedURL = ""
     @State private var addMessage = ""
     @State private var showProviderForm = false
-    @State private var pName = "", pBase = "", pModel = "", pKey = ""
+    @State private var pName = ""
+    @State private var pBase = ""
+    @State private var pModel = ""
+    @State private var pKey = ""
     @State private var showOPML = false
 
     var body: some View {
